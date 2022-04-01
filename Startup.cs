@@ -42,6 +42,7 @@ namespace SahafAPI
             });
             services.AddScoped<IBookSellerRepository, BookSellerRepository>();
             services.AddScoped<IBookSellerService, BookSellerService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

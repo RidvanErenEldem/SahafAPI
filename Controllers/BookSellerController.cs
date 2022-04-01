@@ -33,11 +33,21 @@ namespace SahafAPI.Controllers
             return  resources;
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> SaveAsync([FromBody] SaveBookSeller save)
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SaveBookSellerResource resource)
         {
             if(!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
-        }*/
+            //var bookSeller = mapper.Map<SaveBookSellerResource, BookSeller>(resource);
+            var bookSeller = new BookSeller();
+            bookSeller.name = resource.name;
+            var result = await bookSellerService.SaveAsync(bookSeller);
+
+            if(!result.success)
+                return BadRequest(result.message);
+
+            var bookSellerResource = mapper.Map<BookSeller, BookSellerResource>(result.bookSeller);
+            return Ok(bookSellerResource);
+        }
     }
 }

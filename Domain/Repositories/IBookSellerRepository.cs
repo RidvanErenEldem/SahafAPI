@@ -9,5 +9,6 @@ namespace SahafAPI.Domain.Repositories
     public interface IBookSellerRepository
     {
         Task<List<BookSeller>> ListAsync();
+        Task AddAsync(BookSeller bookSeller);
     }
 }

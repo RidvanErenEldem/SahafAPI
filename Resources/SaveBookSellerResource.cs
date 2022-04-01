@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SahafAPI.Resources
 {
-    public class SaveBookSeller
+    public class SaveBookSellerResource
     {
         [Required]
         [MaxLength(50)]

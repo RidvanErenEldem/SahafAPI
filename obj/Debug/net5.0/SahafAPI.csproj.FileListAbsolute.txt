@@ -57,3 +57,9 @@ C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.dll
 C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\ref\SahafAPI.dll
 C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.pdb
 C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.genruntimeconfig.cache
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
