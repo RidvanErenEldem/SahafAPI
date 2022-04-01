@@ -10,7 +10,8 @@ namespace SahafAPI.Domain.Services.Interfaces
     public interface IBookSellerService
     {
         Task<List<BookSeller>> ListAsync();
-        Task<SaveBookSellerResponse> SaveAsync(BookSeller bookSeller);
-        Task<SaveBookSellerResponse> UpdateAsync(int id, BookSeller bookSeller);
+        Task<BookSellerResponse> SaveAsync(BookSeller bookSeller);
+        Task<BookSellerResponse> UpdateAsync(int id, BookSeller bookSeller);
+        Task<BookSellerResponse> DeleteAsync(int id);
     }
 }

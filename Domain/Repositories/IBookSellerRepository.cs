@@ -12,5 +12,6 @@ namespace SahafAPI.Domain.Repositories
         Task AddAsync(BookSeller bookSeller);
         Task<BookSeller> FindByIdAsync(int id);
         void Update(BookSeller bookSeller);
+        void Remove(BookSeller bookSeller);
     }
 }

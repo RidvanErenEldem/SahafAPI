@@ -34,7 +34,7 @@ namespace SahafAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] SaveBookSellerResource resource)
+        public async Task<IActionResult> AddAsync([FromBody] SaveBookSellerResource resource)
         {
             if(!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
@@ -50,7 +50,7 @@ namespace SahafAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id,[FromBody] SaveBookSellerResource resource)
+        public async Task<IActionResult> UpdateAsync(int id,[FromBody] SaveBookSellerResource resource)
         {
             if(!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
@@ -58,6 +58,18 @@ namespace SahafAPI.Controllers
             var bookSeller = new BookSeller();
             bookSeller.name = resource.name;
             var result = await bookSellerService.UpdateAsync(id, bookSeller);
+
+            if(!result.success)
+                return BadRequest(result.message);
+
+            var bookSellerResource = mapper.Map<BookSeller, BookSellerResource>(result.bookSeller);
+            return Ok(bookSellerResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await bookSellerService.DeleteAsync(id);
 
             if(!result.success)
                 return BadRequest(result.message);

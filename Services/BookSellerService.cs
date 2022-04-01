@@ -21,32 +21,53 @@ namespace SahafAPI.Services
             this.bookSellerRepository = bookSellerRepository;
             this.unitOfWork = unitOfWork;
         }
+
+        public async Task<BookSellerResponse> DeleteAsync(int id)
+        {
+            var existingBookSeller = await bookSellerRepository.FindByIdAsync(id);
+
+            if(existingBookSeller == null)
+                return new BookSellerResponse("Book Seller Not Found 400");
+            
+            try
+            {
+                bookSellerRepository.Remove(existingBookSeller);
+                await unitOfWork.ComplateAsync();
+
+                return new BookSellerResponse(existingBookSeller);
+            }
+            catch (Exception ex)
+            {
+                return new BookSellerResponse($"An error occurred when deleting the book seller: {ex.Message}");
+            }
+        }
+
         public async Task<List<BookSeller>> ListAsync()
         {
             return await bookSellerRepository.ListAsync();
         }
 
-        public async Task<SaveBookSellerResponse> SaveAsync(BookSeller bookSeller)
+        public async Task<BookSellerResponse> SaveAsync(BookSeller bookSeller)
         {
             try
             {
                 await bookSellerRepository.AddAsync(bookSeller);
                 await unitOfWork.ComplateAsync();
 
-                return new SaveBookSellerResponse(bookSeller);
+                return new BookSellerResponse(bookSeller);
             }
             catch (Exception ex)
             {
-                return new SaveBookSellerResponse($"An error occurred when saving the book seller: {ex.Message}");
+                return new BookSellerResponse($"An error occurred when saving the book seller: {ex.Message}");
             }
         }
 
-        public async Task<SaveBookSellerResponse> UpdateAsync(int id, BookSeller bookSeller)
+        public async Task<BookSellerResponse> UpdateAsync(int id, BookSeller bookSeller)
         {
             var existingBookSeller = await bookSellerRepository.FindByIdAsync(id);
 
             if(existingBookSeller == null)
-                return new SaveBookSellerResponse("Book Seller Not Found 404");
+                return new BookSellerResponse("Book Seller Not Found 400");
             
             existingBookSeller.name = bookSeller.name;
 
@@ -55,11 +76,11 @@ namespace SahafAPI.Services
                 bookSellerRepository.Update(existingBookSeller);
                 await unitOfWork.ComplateAsync();
 
-                return new SaveBookSellerResponse(existingBookSeller);
+                return new BookSellerResponse(existingBookSeller);
             }
             catch (Exception ex)
             {
-                return new SaveBookSellerResponse($"An error occurred when updating the category: {ex.Message}");
+                return new BookSellerResponse($"An error occurred when updating the category: {ex.Message}");
             }
         }
     }

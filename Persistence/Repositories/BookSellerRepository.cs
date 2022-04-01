@@ -32,5 +32,10 @@ namespace SahafAPI.Persistence.Repositories
         {
             context.BookSeller.Update(bookSeller);
         }
+
+        public void Remove(BookSeller bookSeller)
+        {
+            context.BookSeller.Remove(bookSeller);
+        }
     }
 }
