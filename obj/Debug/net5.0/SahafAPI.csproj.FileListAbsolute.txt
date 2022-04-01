@@ -1,0 +1,58 @@
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\appsettings.json
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\SahafAPI.exe
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\SahafAPI.deps.json
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\SahafAPI.runtimeconfig.json
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\SahafAPI.runtimeconfig.dev.json
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\SahafAPI.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\ref\SahafAPI.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\SahafAPI.pdb
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.csprojAssemblyReference.cache
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.AssemblyInfoInputs.cache
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.AssemblyInfo.cs
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.csproj.CoreCompileInputs.cache
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\staticwebassets\SahafAPI.StaticWebAssets.Manifest.cache
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\staticwebassets\SahafAPI.StaticWebAssets.xml
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\scopedcss\bundle\SahafAPI.styles.css
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.RazorTargetAssemblyInfo.cache
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.csproj.CopyComplete
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\ref\SahafAPI.dll
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.pdb
+C:\Users\ridva\Desktop\Kodlama ve Ders\OmreonApi\src\SahafAPI\obj\Debug\net5.0\SahafAPI.genruntimeconfig.cache
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\appsettings.json
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\SahafAPI.exe
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\SahafAPI.deps.json
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\SahafAPI.runtimeconfig.json
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\SahafAPI.runtimeconfig.dev.json
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\SahafAPI.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\ref\SahafAPI.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\SahafAPI.pdb
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ridva\Documents\Github\SahafAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.csprojAssemblyReference.cache
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.AssemblyInfoInputs.cache
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.AssemblyInfo.cs
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.csproj.CoreCompileInputs.cache
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\staticwebassets\SahafAPI.StaticWebAssets.Manifest.cache
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\staticwebassets\SahafAPI.StaticWebAssets.xml
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\scopedcss\bundle\SahafAPI.styles.css
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.RazorTargetAssemblyInfo.cache
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.csproj.CopyComplete
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.dll
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\ref\SahafAPI.dll
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.pdb
+C:\Users\ridva\Documents\Github\SahafAPI\obj\Debug\net5.0\SahafAPI.genruntimeconfig.cache
