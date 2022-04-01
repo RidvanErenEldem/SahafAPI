@@ -8,6 +8,6 @@ namespace SahafAPI.Domain.Services.Interfaces
 {
     public interface IBookSellerService
     {
-        Task<BookSeller> ListAsync();
+        Task<List<BookSeller>> ListAsync();
     }
 }

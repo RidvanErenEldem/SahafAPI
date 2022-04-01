@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI\\SahafAPI.csproj": {}
+    "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI\\SahafAPI.csproj": {
+    "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI\\SahafAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI.csproj",
         "projectName": "SahafAPI",
-        "projectPath": "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI\\SahafAPI.csproj",
+        "projectPath": "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI.csproj",
         "packagesPath": "C:\\Users\\ridva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\SahafAPI\\obj\\",
+        "outputPath": "C:\\Users\\ridva\\Documents\\Github\\SahafAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ridva\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,7 +40,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.15, )"
             },

@@ -21,7 +21,7 @@ namespace SahafAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<BookSeller> GetAllAsync()
+        public async Task<List<BookSeller>> GetAllAsync()
         {
             var bookSellers = await bookSellerService.ListAsync();
             return bookSellers;

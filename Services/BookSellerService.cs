@@ -18,7 +18,7 @@ namespace SahafAPI.Services
         {
             this.bookSellerRepository = bookSellerRepository;
         }
-        public async Task<BookSeller> ListAsync()
+        public async Task<List<BookSeller>> ListAsync()
         {
             return await bookSellerRepository.ListAsync();
         }

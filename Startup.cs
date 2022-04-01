@@ -7,10 +7,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SahafAPI.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SahafAPI.Domain.Repositories;
+using SahafAPI.Persistence.Repositories;
+using SahafAPI.Domain.Services.Interfaces;
+using SahafAPI.Services;
 
 namespace SahafAPI
 {
@@ -23,18 +29,20 @@ namespace SahafAPI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SahafAPI", Version = "v1" });
             });
+            services.AddDbContext<AppDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("DBSahaf"));
+            });
+            services.AddScoped<IBookSellerRepository, BookSellerRepository>();
+            services.AddScoped<IBookSellerService, BookSellerService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
