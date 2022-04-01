@@ -40,5 +40,27 @@ namespace SahafAPI.Services
                 return new SaveBookSellerResponse($"An error occurred when saving the book seller: {ex.Message}");
             }
         }
+
+        public async Task<SaveBookSellerResponse> UpdateAsync(int id, BookSeller bookSeller)
+        {
+            var existingBookSeller = await bookSellerRepository.FindByIdAsync(id);
+
+            if(existingBookSeller == null)
+                return new SaveBookSellerResponse("Book Seller Not Found 404");
+            
+            existingBookSeller.name = bookSeller.name;
+
+            try
+            {
+                bookSellerRepository.Update(existingBookSeller);
+                await unitOfWork.ComplateAsync();
+
+                return new SaveBookSellerResponse(existingBookSeller);
+            }
+            catch (Exception ex)
+            {
+                return new SaveBookSellerResponse($"An error occurred when updating the category: {ex.Message}");
+            }
+        }
     }
 }

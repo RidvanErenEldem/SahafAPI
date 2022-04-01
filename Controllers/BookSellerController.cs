@@ -38,10 +38,26 @@ namespace SahafAPI.Controllers
         {
             if(!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
-            //var bookSeller = mapper.Map<SaveBookSellerResource, BookSeller>(resource);
             var bookSeller = new BookSeller();
             bookSeller.name = resource.name;
             var result = await bookSellerService.SaveAsync(bookSeller);
+
+            if(!result.success)
+                return BadRequest(result.message);
+
+            var bookSellerResource = mapper.Map<BookSeller, BookSellerResource>(result.bookSeller);
+            return Ok(bookSellerResource);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id,[FromBody] SaveBookSellerResource resource)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var bookSeller = new BookSeller();
+            bookSeller.name = resource.name;
+            var result = await bookSellerService.UpdateAsync(id, bookSeller);
 
             if(!result.success)
                 return BadRequest(result.message);
