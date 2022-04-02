@@ -9,6 +9,8 @@ namespace SahafAPI.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<BookSeller, BookSellerResource>();
+
+            CreateMap<Book, BookResource>();
         }
     }
 }

@@ -35,6 +35,8 @@ namespace SahafAPI
             });
             services.AddScoped<IBookSellerRepository, BookSellerRepository>();
             services.AddScoped<IBookSellerService, BookSellerService>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookService, BookService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
