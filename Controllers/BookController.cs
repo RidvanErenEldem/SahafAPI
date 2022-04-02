@@ -64,5 +64,17 @@ namespace SahafAPI.Controllers
             var bookResource = mapper.Map<Book, BookResource>(result.book);
             return Ok(bookResource);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await bookService.DeleteAsync(id);
+
+            if(!result.success)
+                return BadRequest(result.message);
+            
+            var bookResource = mapper.Map<Book, BookResource>(result.book);
+            return Ok(bookResource);
+        }
+
     }
 }

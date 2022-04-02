@@ -28,6 +28,11 @@ namespace SahafAPI.Persistence.Repositories
             return await context.Book.ToListAsync();
         }
 
+        public void Remove(Book book)
+        {
+            context.Book.Remove(book);
+        }
+
         public void Update(Book book)
         {
             context.Book.Update(book);

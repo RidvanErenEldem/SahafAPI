@@ -18,6 +18,27 @@ namespace SahafAPI.Services
             this.bookRepository = bookRepository;
             this.unitOfWork = unitOfWork;
         }
+
+        public async Task<BookResponse> DeleteAsync(int id)
+        {
+            var existingBook = await bookRepository.FindByIdAsync(id);
+
+            if(existingBook == null)
+                return new BookResponse("Book Not Found Error Code: 400");
+            
+            try
+            {
+                bookRepository.Remove(existingBook);
+                await unitOfWork.ComplateAsync();
+
+                return new BookResponse(existingBook);
+            }
+            catch (Exception ex)
+            {
+                return new BookResponse($"An error occurred when deleting the book: {ex.Message}");
+            }
+        }
+
         public async Task<List<Book>> ListAsync()
         {
             return await bookRepository.ListAsync();
