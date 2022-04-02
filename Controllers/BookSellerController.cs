@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SahafAPI.Domain.Models;
 using SahafAPI.Domain.Services.Interfaces;
 using SahafAPI.Extensions;
 using SahafAPI.Resources;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SahafAPI.Controllers
