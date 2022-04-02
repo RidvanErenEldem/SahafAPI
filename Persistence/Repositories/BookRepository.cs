@@ -13,6 +13,11 @@ namespace SahafAPI.Persistence.Repositories
         {
         }
 
+        public async Task AddAsync(Book book)
+        {
+            await context.AddAsync(book);
+        }
+
         public async Task<List<Book>> ListAsync()
         {
             return await context.Book.ToListAsync();

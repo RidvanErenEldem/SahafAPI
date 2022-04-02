@@ -33,11 +33,12 @@ namespace SahafAPI
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("DBSahaf"));
             });
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBookSellerRepository, BookSellerRepository>();
             services.AddScoped<IBookSellerService, BookSellerService>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
