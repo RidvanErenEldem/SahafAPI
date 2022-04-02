@@ -9,5 +9,6 @@ namespace SahafAPI.Domain.Repositories
     public interface IUserRepository
     {
         Task<List<User>> ListAsync();
+        Task AddAsync(User user);
     }
 }

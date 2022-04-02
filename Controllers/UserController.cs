@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SahafAPI.Domain.Models;
 using SahafAPI.Domain.Services.Interfaces;
+using SahafAPI.Extensions;
 using SahafAPI.Resources;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 
 namespace SahafAPI.Controllers
 {
@@ -30,6 +30,25 @@ namespace SahafAPI.Controllers
             var resources = mapper.Map<List<User>, List<UserResource>>(users);
 
             return resources;
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddAsync([FromBody] SaveUserResource resource)
+        {
+            if (!ModelState.IsValid)
+		        return BadRequest(ModelState.GetErrorMessages());
+
+            var user = new User();
+            user.name = resource.name;
+            user.bookBorrowDate = resource.bookBorrowDate;
+            user.bookReturnDate = resource.bookReturnDate;
+            user.bookId = resource.bookId;
+            var result = await userService.SaveAsync(user);
+
+            if (!result.success)
+		        return BadRequest(result.message);
+            
+            var userResource = mapper.Map<User, UserResource>(result.user);
+            return Ok(userResource);
         }
     }
 }

@@ -15,6 +15,11 @@ namespace SahafAPI.Persistence.Repositories
         {
         }
 
+        public async Task AddAsync(User user)
+        {
+            await context.AddAsync(user);
+        }
+
         public async Task<List<User>> ListAsync()
         {
             return await context.User.ToListAsync();
