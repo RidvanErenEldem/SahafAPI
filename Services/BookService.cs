@@ -37,5 +37,29 @@ namespace SahafAPI.Services
                 return new BookResponse($"An error occurred when saving the book: {ex.Message}");
             }
         }
+
+        public async Task<BookResponse> UpdateAsync(int id, Book book)
+        {
+            var existingBook = await bookRepository.FindByIdAsync(id);
+            
+            if(existingBook == null)
+                return new BookResponse("Book Not Found 400");
+
+            existingBook.name = book.name;
+            existingBook.bookSellerId = book.bookSellerId;
+            
+            try
+            {
+                bookRepository.Update(existingBook);
+                await unitOfWork.ComplateAsync();
+
+                return new BookResponse(existingBook);
+            }
+            catch (Exception ex)
+            {
+                return new BookResponse($"An error occurred when updating the book: {ex.Message}");
+            }
+
+        }
     }
 }

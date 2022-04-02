@@ -8,5 +8,8 @@ namespace SahafAPI.Domain.Repositories
     {
         Task<List<Book>> ListAsync();
         Task AddAsync(Book book);
+
+        Task<Book> FindByIdAsync(int id);
+        void Update(Book book);
     }
 }

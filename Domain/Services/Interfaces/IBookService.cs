@@ -11,5 +11,6 @@ namespace SahafAPI.Domain.Services.Interfaces
     {
         Task<List<Book>> ListAsync();
         Task<BookResponse> SaveAsync(Book book);
+        Task<BookResponse> UpdateAsync(int id, Book book);
     }
 }

@@ -77,7 +77,7 @@ namespace SahafAPI.Services
             }
             catch (Exception ex)
             {
-                return new BookSellerResponse($"An error occurred when updating the category: {ex.Message}");
+                return new BookSellerResponse($"An error occurred when updating the book seller: {ex.Message}");
             }
         }
     }

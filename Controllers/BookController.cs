@@ -48,5 +48,21 @@ namespace SahafAPI.Controllers
             var bookResource = mapper.Map<Book, BookResource>(result.book);
             return Ok(bookResource);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync(int id, SaveBookResource resource)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            var book = new Book();
+            book.name = resource.name;
+            book.bookSellerId = resource.bookSellerId;
+            var result = await bookService.UpdateAsync(id, book);
+
+            if(!result.success)
+                return BadRequest(result.message);
+            
+            var bookResource = mapper.Map<Book, BookResource>(result.book);
+            return Ok(bookResource);
+        }
     }
 }
