@@ -11,6 +11,8 @@ namespace SahafAPI.Mapping
             CreateMap<BookSeller, BookSellerResource>();
 
             CreateMap<Book, BookResource>();
+            
+            CreateMap<User, UserResource>();
         }
     }
 }
