@@ -13,5 +13,6 @@ namespace SahafAPI.Domain.Services.Interfaces
         Task<UserResponse> SaveAsync(User user);
         Task<UserResponse> UpdateAsync(int id,User user);
         Task<UserResponse> DeleteAsync(int id);
+        Task<string> GetNameAsync(int id);
     }
 }

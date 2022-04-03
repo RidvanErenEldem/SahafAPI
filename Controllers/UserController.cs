@@ -4,6 +4,7 @@ using SahafAPI.Domain.Models;
 using SahafAPI.Domain.Services.Interfaces;
 using SahafAPI.Extensions;
 using SahafAPI.Resources;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -39,6 +40,14 @@ namespace SahafAPI.Controllers
 
             var user = new User();
             user.name = resource.name;
+            if(resource.bookBorrowDate > resource.bookReturnDate)
+            {
+                DateTime? temp = resource.bookBorrowDate;
+                resource.bookBorrowDate = resource.bookReturnDate;
+                resource.bookReturnDate = temp;
+            }
+            else if(resource.bookBorrowDate == resource.bookReturnDate)
+                return BadRequest("Borrow Date and Return Date cant be same");
             user.bookBorrowDate = resource.bookBorrowDate;
             user.bookReturnDate = resource.bookReturnDate;
             user.bookId = resource.bookId;
@@ -59,6 +68,14 @@ namespace SahafAPI.Controllers
             var user = new User();
             user.name = resource.name;
             user.bookId = resource.bookId;
+            if(resource.bookBorrowDate > resource.bookReturnDate)
+            {
+                DateTime? temp = resource.bookBorrowDate;
+                resource.bookBorrowDate = resource.bookReturnDate;
+                resource.bookReturnDate = temp;
+            }
+            else if(resource.bookBorrowDate == resource.bookReturnDate)
+                return BadRequest("Borrow Date and Return Date cant be same");
             user.bookBorrowDate = resource.bookBorrowDate;
             user.bookReturnDate = resource.bookReturnDate;
 
@@ -79,6 +96,38 @@ namespace SahafAPI.Controllers
                 return BadRequest(result.message);
             
             var userResource = mapper.Map<User, UserResource>(result.user);
+            return Ok(userResource);
+        }
+
+        [HttpPut("/borrow/{id}")]
+        public async Task<IActionResult> AddBookToUser(int id,[FromBody] UserAddBookResource resource)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var user = new User();
+            user.name = await userService.GetNameAsync(id);
+            if(resource.bookBorrowDate > resource.bookReturnDate)
+            {
+                DateTime temp = resource.bookBorrowDate;
+                resource.bookBorrowDate = resource.bookReturnDate;
+                resource.bookReturnDate = temp;
+            }
+            else if(resource.bookBorrowDate == resource.bookReturnDate)
+                return BadRequest("Borrow Date and Return Date cant be same");
+            user.bookBorrowDate = resource.bookBorrowDate;
+            user.bookReturnDate = resource.bookReturnDate;
+            user.bookId = resource.bookId;
+
+            var result = await userService.UpdateAsync(id,user);
+
+            if(!result.success)
+                return BadRequest(result.message);
+            
+            var userResource = new UserAddBookResource();
+            userResource.bookId = resource.bookId;
+            userResource.bookReturnDate = resource.bookReturnDate;
+            userResource.bookBorrowDate = resource.bookBorrowDate;
             return Ok(userResource);
         }
     }

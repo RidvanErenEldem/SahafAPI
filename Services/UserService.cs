@@ -82,5 +82,11 @@ namespace SahafAPI.Services
                 return new UserResponse($"An error occurred when deleting the user: {ex.Message}");
             }
         }
+
+        public async Task<string> GetNameAsync(int id)
+        {
+            var existingUser = await userRepository.FindByIdAsync(id);
+            return existingUser.name;
+        }
     }
 }
