@@ -130,5 +130,21 @@ namespace SahafAPI.Controllers
             userResource.bookBorrowDate = resource.bookBorrowDate;
             return Ok(userResource);
         }
+        [HttpPut("{id}/return")]
+        public async Task<IActionResult> ReturnBook(int id)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            var user = new User();
+            user.name = await userService.GetNameAsync(id);
+            var result = await userService.UpdateAsync(id,user);
+            if(!result.success)
+                return BadRequest(result.message);
+            
+            var userResource = new UserResource();
+            userResource.name = user.name;
+            userResource.id = id;
+            return Ok(userResource);
+        }
     }
 }
