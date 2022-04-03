@@ -10,7 +10,7 @@ namespace SahafAPI.Domain.Services.Communication
     {
         public User user { get; set; }
         
-        private UserResponse(bool success, string message, User usere) :base(success, message)
+        private UserResponse(bool success, string message, User user) :base(success, message)
         {
             this.user = user;
         }
