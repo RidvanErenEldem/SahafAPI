@@ -24,5 +24,13 @@ namespace SahafAPI.Persistence.Repositories
         {
             return await context.User.ToListAsync();
         }
+        public async Task<User> FindByIdAsync(int id)
+        {
+            return await context.User.FindAsync(id);
+        }
+        public void Update(User user)
+        {
+            context.User.Update(user);
+        }
     }
 }

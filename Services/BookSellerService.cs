@@ -64,7 +64,7 @@ namespace SahafAPI.Services
             var existingBookSeller = await bookSellerRepository.FindByIdAsync(id);
 
             if(existingBookSeller == null)
-                return new BookSellerResponse("Book Seller Not Found 400");
+                return new BookSellerResponse($"The book seller with id {id} does not exist");
             
             existingBookSeller.name = bookSeller.name;
 

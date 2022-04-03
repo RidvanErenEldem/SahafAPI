@@ -50,5 +50,25 @@ namespace SahafAPI.Controllers
             var userResource = mapper.Map<User, UserResource>(result.user);
             return Ok(userResource);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync(int id,[FromBody] SaveUserResource resource)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            
+            var user = new User();
+            user.name = resource.name;
+            user.bookId = resource.bookId;
+            user.bookBorrowDate = resource.bookBorrowDate;
+            user.bookReturnDate = resource.bookReturnDate;
+
+            var result = await userService.UpdateAsync(id, user);
+
+            if(!result.success)
+                return BadRequest(result.message);
+            
+            var userResource = mapper.Map<User, UserResource>(result.user);
+            return Ok(userResource);
+        }
     }
 }

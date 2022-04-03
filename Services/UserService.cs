@@ -38,5 +38,30 @@ namespace SahafAPI.Services
                 return new UserResponse($"An error occurred when saving the user: {ex.Message}");
             }
         }
+
+        public async Task<UserResponse> UpdateAsync(int id, User user)
+        {
+            var existingUser = await userRepository.FindByIdAsync(id);
+
+            if(existingUser == null)
+                return new UserResponse($"The user with id {id} does not exist");
+            
+            existingUser.name = user.name;
+            existingUser.bookId = user.bookId;
+            existingUser.bookBorrowDate = user.bookBorrowDate;
+            existingUser.bookReturnDate = user.bookReturnDate;
+            
+            try
+            {
+                userRepository.Update(existingUser);
+                await unitOfWork.ComplateAsync();
+
+                return new UserResponse(existingUser);
+            }
+            catch (Exception ex)
+            {
+                return new UserResponse($"An error occurred when updating the user: {ex.Message}");
+            }
+        }
     }
 }
