@@ -99,7 +99,7 @@ namespace SahafAPI.Controllers
             return Ok(userResource);
         }
 
-        [HttpPut("/borrow/{id}")]
+        [HttpPut("{id}/borrow")]
         public async Task<IActionResult> AddBookToUser(int id,[FromBody] UserAddBookResource resource)
         {
             if(!ModelState.IsValid)
