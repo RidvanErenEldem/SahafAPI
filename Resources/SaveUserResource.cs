@@ -11,7 +11,6 @@ namespace SahafAPI.Resources
         [Required]
         [MaxLength(50)]
         public string name { get; set; }
-        public DateTime? bookBorrowDate { get; set; }
         public DateTime? bookReturnDate { get; set; }
         public int? bookId { get; set; }
     }

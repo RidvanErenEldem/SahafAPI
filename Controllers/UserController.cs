@@ -40,17 +40,16 @@ namespace SahafAPI.Controllers
 
             var user = new User();
             user.name = resource.name;
-            if(resource.bookBorrowDate > resource.bookReturnDate)
+            
+            if(resource.bookReturnDate <= DateTime.Now)
+                return BadRequest("You cant borrow book check your return date");
+
+            if(resource.bookReturnDate != null)
             {
-                DateTime? temp = resource.bookBorrowDate;
-                resource.bookBorrowDate = resource.bookReturnDate;
-                resource.bookReturnDate = temp;
+                user.bookBorrowDate = DateTime.Now;
+                user.bookId = resource.bookId;
             }
-            else if(resource.bookBorrowDate == resource.bookReturnDate)
-                return BadRequest("Borrow Date and Return Date cant be same");
-            user.bookBorrowDate = resource.bookBorrowDate;
             user.bookReturnDate = resource.bookReturnDate;
-            user.bookId = resource.bookId;
             var result = await userService.SaveAsync(user);
 
             if (!result.success)
@@ -67,16 +66,15 @@ namespace SahafAPI.Controllers
             
             var user = new User();
             user.name = resource.name;
-            user.bookId = resource.bookId;
-            if(resource.bookBorrowDate > resource.bookReturnDate)
+
+            if(resource.bookReturnDate <= DateTime.Now)
+                return BadRequest("You cant borrow book check your return date");
+
+            if(resource.bookReturnDate != null)
             {
-                DateTime? temp = resource.bookBorrowDate;
-                resource.bookBorrowDate = resource.bookReturnDate;
-                resource.bookReturnDate = temp;
+                user.bookBorrowDate = DateTime.Now;
+                user.bookId = resource.bookId;
             }
-            else if(resource.bookBorrowDate == resource.bookReturnDate)
-                return BadRequest("Borrow Date and Return Date cant be same");
-            user.bookBorrowDate = resource.bookBorrowDate;
             user.bookReturnDate = resource.bookReturnDate;
 
             var result = await userService.UpdateAsync(id, user);
@@ -107,15 +105,11 @@ namespace SahafAPI.Controllers
 
             var user = new User();
             user.name = await userService.GetNameAsync(id);
-            if(resource.bookBorrowDate > resource.bookReturnDate)
-            {
-                DateTime temp = resource.bookBorrowDate;
-                resource.bookBorrowDate = resource.bookReturnDate;
-                resource.bookReturnDate = temp;
-            }
-            else if(resource.bookBorrowDate == resource.bookReturnDate)
-                return BadRequest("Borrow Date and Return Date cant be same");
-            user.bookBorrowDate = resource.bookBorrowDate;
+            
+            if(resource.bookReturnDate <= DateTime.Now)
+                return BadRequest("You cant borrow book check your return date");
+            
+            user.bookBorrowDate = DateTime.Now;
             user.bookReturnDate = resource.bookReturnDate;
             user.bookId = resource.bookId;
 
@@ -127,7 +121,6 @@ namespace SahafAPI.Controllers
             var userResource = new UserAddBookResource();
             userResource.bookId = resource.bookId;
             userResource.bookReturnDate = resource.bookReturnDate;
-            userResource.bookBorrowDate = resource.bookBorrowDate;
             return Ok(userResource);
         }
         [HttpPut("{id}/return")]
