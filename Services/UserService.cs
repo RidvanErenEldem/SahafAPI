@@ -63,5 +63,24 @@ namespace SahafAPI.Services
                 return new UserResponse($"An error occurred when updating the user: {ex.Message}");
             }
         }
+        public async Task<UserResponse> DeleteAsync(int id)
+        {
+            var existingUser = await userRepository.FindByIdAsync(id);
+
+            if(existingUser == null)
+                return new UserResponse($"The user with id {id} does not exist");
+            
+            try
+            {
+                userRepository.Remove(existingUser);
+                await unitOfWork.ComplateAsync();
+
+                return new UserResponse(existingUser);
+            }
+            catch (Exception ex)
+            {
+                return new UserResponse($"An error occurred when deleting the user: {ex.Message}");
+            }
+        }
     }
 }

@@ -70,5 +70,16 @@ namespace SahafAPI.Controllers
             var userResource = mapper.Map<User, UserResource>(result.user);
             return Ok(userResource);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await userService.DeleteAsync(id);
+
+            if(!result.success)
+                return BadRequest(result.message);
+            
+            var userResource = mapper.Map<User, UserResource>(result.user);
+            return Ok(userResource);
+        }
     }
 }

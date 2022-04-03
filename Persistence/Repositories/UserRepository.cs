@@ -32,5 +32,9 @@ namespace SahafAPI.Persistence.Repositories
         {
             context.User.Update(user);
         }
+        public void Remove(User user)
+        {
+            context.User.Remove(user);
+        }
     }
 }
