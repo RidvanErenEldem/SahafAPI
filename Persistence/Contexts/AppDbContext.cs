@@ -8,6 +8,7 @@ namespace SahafAPI.Persistence.Contexts
         public DbSet<BookSeller> BookSeller { get; set; }
         public DbSet<Book> Book { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<DailyReport> DailyReport { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 

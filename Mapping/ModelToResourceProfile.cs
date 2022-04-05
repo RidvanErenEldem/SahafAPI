@@ -13,6 +13,8 @@ namespace SahafAPI.Mapping
             CreateMap<Book, BookResource>();
             
             CreateMap<User, UserResource>();
+            
+            CreateMap<DailyReport, DailyReportResource>();
         }
     }
 }

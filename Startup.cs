@@ -34,12 +34,18 @@ namespace SahafAPI
                 options.UseSqlServer(Configuration.GetConnectionString("DBSahaf"));
             });
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddScoped<IBookSellerRepository, BookSellerRepository>();
             services.AddScoped<IBookSellerService, BookSellerService>();
+
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            
+            services.AddScoped<IDailyReportRepository, DailyReportRepository>();
+            services.AddScoped<IDailyReportService, DailyReportService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
