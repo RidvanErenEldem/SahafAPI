@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using SahafAPI.Domain.Models;
@@ -11,5 +12,7 @@ namespace SahafAPI.Domain.Repositories
         Task<DailyReport> FindByIdAsync(int id);
         void Update(DailyReport dailyReport);
         void Remove(DailyReport dailyReport);
+
+        Task<List<DailyReport>> CustomSql(string query);
     }
 }

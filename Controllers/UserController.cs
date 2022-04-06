@@ -17,11 +17,13 @@ namespace SahafAPI.Controllers
     {
         private readonly IUserService userService;
         private readonly IMapper mapper;
+        private readonly IDailyReportService dailyReportService;
 
-        public UserController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper, IDailyReportService dailyReportService)
         {
             this.userService = userService;
             this.mapper = mapper;
+            this.dailyReportService = dailyReportService;
         }
 
         [HttpGet]
@@ -105,15 +107,37 @@ namespace SahafAPI.Controllers
 
             var user = new User();
             user.name = await userService.GetNameAsync(id);
+            DateTime currentDate = DateTime.Now;
             
-            if(resource.bookReturnDate <= DateTime.Now)
+            if(resource.bookReturnDate <= currentDate)
                 return BadRequest("You cant borrow book check your return date");
             
-            user.bookBorrowDate = DateTime.Now;
+            user.bookBorrowDate = currentDate;
             user.bookReturnDate = resource.bookReturnDate;
             user.bookId = resource.bookId;
 
             var result = await userService.UpdateAsync(id,user);
+
+            var dailyReportList = await dailyReportService.GetIdByDate();
+            var dailyReport = new DailyReport();
+            if(dailyReportList.Count == 0)
+            {
+                dailyReport.date = currentDate;
+                dailyReport.bookAmount = 1;
+                var resultDailyReport = await dailyReportService.SaveAsync(dailyReport);
+
+                if(!resultDailyReport.success)
+                    return BadRequest(resultDailyReport.message);
+            }
+            else
+            {
+                dailyReport.date = currentDate;
+                dailyReport.bookAmount = dailyReportList[0].bookAmount + 1 ;
+                var resultDailyReport = await dailyReportService.UpdateAsync(dailyReportList[0].id,dailyReport);
+
+                if(!resultDailyReport.success)
+                    return BadRequest(resultDailyReport.message);
+            }
 
             if(!result.success)
                 return BadRequest(result.message);

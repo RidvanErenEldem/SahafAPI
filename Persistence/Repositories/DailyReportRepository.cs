@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -37,5 +38,9 @@ namespace SahafAPI.Persistence.Repositories
             context.DailyReport.Remove(dailyReport);
         }
 
+        public async Task<List<DailyReport>> CustomSql(string query)
+        {
+            return await context.DailyReport.FromSqlRaw(query).ToListAsync();
+        }
     }
 }

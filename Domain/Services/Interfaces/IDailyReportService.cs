@@ -13,5 +13,6 @@ namespace SahafAPI.Domain.Services.Interfaces
         Task<DailyReportResponse> SaveAsync(DailyReport dailyReport);
         Task<DailyReportResponse> UpdateAsync(int id, DailyReport dailyReport);
         Task<DailyReportResponse> DeleteAsync(int id);
+        Task<List<DailyReport>> GetIdByDate();
     }
 }

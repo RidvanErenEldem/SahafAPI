@@ -78,5 +78,12 @@ namespace SahafAPI.Services
                 return new DailyReportResponse($"An error occurred when deleting the daily report: {ex.Message}");
             }
         }
+        public async Task<List<DailyReport>> GetIdByDate()
+        {
+            const string quote = "\'";
+            string query = "SELECT * FROM DailyReport WHERE [date] = " + quote+ DateTime.Now.ToString("yyyy-MM-dd")+quote;
+            var existingDailyReport = await dailyReportRepository.CustomSql(query);
+            return existingDailyReport;
+        }
     }
 }
