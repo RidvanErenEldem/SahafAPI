@@ -62,6 +62,7 @@ namespace SahafAPI.Controllers
                 return BadRequest(result.message);
             
             var bookResource = mapper.Map<Book, BookResource>(result.book);
+            bookResource.id = id;
             return Ok(bookResource);
         }
         [HttpDelete("{id}")]
