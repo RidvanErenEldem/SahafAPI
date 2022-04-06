@@ -13,9 +13,5 @@ namespace SahafAPI.Persistence.Contexts
         {
 
         }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-        }
     }
 }

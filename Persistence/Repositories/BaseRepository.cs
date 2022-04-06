@@ -6,7 +6,7 @@ namespace SahafAPI.Persistence.Repositories
     {
         protected readonly AppDbContext context;
 
-        public BaseRepository(AppDbContext context)
+        protected BaseRepository(AppDbContext context)
         {
             this.context = context;
         }
